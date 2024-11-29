@@ -39,7 +39,7 @@ public class Customer {
 
     @Override
     public boolean equals(Object o) {
-
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
         return Objects.equals(nif, customer.nif) && Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname);
@@ -50,5 +50,12 @@ public class Customer {
         return Objects.hash(nif, name, surname);
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "nif='" + nif + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

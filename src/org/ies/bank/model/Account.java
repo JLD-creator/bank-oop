@@ -7,21 +7,10 @@ public class Account {
     private double balance;
     private Customer customer;
 
-    public Account(String iban, double balance, Customer customer) {
+    public Account(String iban, double saldo, Customer customer) {
         this.iban = iban;
-        this.balance = balance;
+        this.balance = saldo;
         this.customer = customer;
-    }
-
-    public void showInfo() {
-        System.out.println("IBAN: " + iban +
-                ". Saldo: " + balance +
-                ". NIF cliente: " + customer.getNif()
-        );
-    }
-
-    public void deposit(double amount) {
-        balance += amount;
     }
 
     public String getIban() {
@@ -50,6 +39,7 @@ public class Account {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
         return Double.compare(balance, account.balance) == 0 && Objects.equals(iban, account.iban) && Objects.equals(customer, account.customer);
@@ -64,7 +54,7 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "iban='" + iban + '\'' +
-                ", balance=" + balance +
+                ", saldo=" + balance +
                 ", customer=" + customer +
                 '}';
     }
