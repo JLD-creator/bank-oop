@@ -12,20 +12,12 @@ public class CustomerReader {
     }
 
     public Customer read() {
-        System.out.println("Introduce los datos del cliente:");
-        System.out.println("NIF:");
+        System.out.println("Introduce el NIF");
         String nif = scanner.nextLine();
-
-        System.out.println("Nombre:");
+        System.out.println("Introduce tu nombre");
         String name = scanner.nextLine();
-
-        System.out.println("Apellidos:");
+        System.out.println("Introduce tu apellido");
         String surname = scanner.nextLine();
-
-        return new Customer(
-                nif,
-                name,
-                surname
-        );
+        return new Customer(nif, name, surname);
     }
 }

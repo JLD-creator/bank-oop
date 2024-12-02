@@ -12,6 +12,9 @@ public class Account {
         this.balance = saldo;
         this.customer = customer;
     }
+    public void showInfo(){
+        System.out.println("Iban "+ iban +" Saldo "+balance +" Cliente "+customer.getNif());
+    }
 
     public String getIban() {
         return iban;
