@@ -29,25 +29,52 @@ public class Bank {
             }
         }
     }
+
     public void findnif(String nif) {
         for (Account account : accounts) {
-            if (account.getCustomer().getNif().equals(nif)){
+            if (account.getCustomer().getNif().equals(nif)) {
                 account.showInfo();
             }
         }
     }
 
-    public void money(String iban, double money) {
-        System.out.println("Que cantidad de dinero desea introducir");
-        money = scanner.nextInt();
-        for (Account account : accounts) {
+    public void deposit(String iban, double amount) {
+        var account = findAccount(iban);
+
+        if (account != null) {
+            account.deposit(amount);
+        } else {
+            System.out.println("Cuenta no encontrada");
+        }
+    }
+
+    public Account findAccount(String iban) {
+        for (var account : accounts) {
             if (account.getIban().equals(iban)) {
-             account.setBalance(account.getBalance()+ money);
-            } else {
-                System.out.println("NO se encuentra la cuenta");
+                return account;
             }
         }
+        return null;
+    }
 
+    public int numberAccountsClient(String nif) {
+        int numbers = 0;
+        for (Account account : accounts) {
+            if (account.getCustomer().getNif().equals(nif)) {
+                numbers = numbers + 1;
+            }
+        }
+        return numbers;
+
+    }
+
+    public Customer returnCustomer(String iban) {
+        var account = findAccount(iban);
+        if (account != null) {
+            return account.getCustomer();
+        } else {
+            return null;
+        }
     }
 
 
