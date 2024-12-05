@@ -1,11 +1,9 @@
 package org.ies.bank;
-
-import org.ies.bank.components.AccountReader;
 import org.ies.bank.components.BankApp;
-import org.ies.bank.components.BankReader;
-import org.ies.bank.components.CustomerReader;
-
 import java.util.Scanner;
+import org.ies.bank.components.BankReader;
+import org.ies.bank.components.AccountReader;
+import org.ies.bank.components.CustomerReader;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +14,5 @@ public class Main {
         BankApp bankApp = new BankApp(scanner, bankReader);
 
         bankApp.run();
-
     }
 }
