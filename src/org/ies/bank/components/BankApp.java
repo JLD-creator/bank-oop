@@ -53,6 +53,7 @@ public class BankApp {
                 double money = scanner.nextDouble();
                 scanner.nextLine();
                 bank.findAccount(iban);
+                bank.deposit(iban, -money);
 
             } else if (option == 6) {
                 System.out.println("Saliendo de la APP...");
