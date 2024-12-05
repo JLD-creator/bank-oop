@@ -47,6 +47,12 @@ public class BankApp {
                 bank.findAccount(iban);
                 bank.deposit(iban, money);
             } else if (option == 5) {
+                System.out.println("Introduce el IBAN");
+                String iban = scanner.nextLine();
+                System.out.println("Introduce la cantidad de dinero a sacar");
+                double money = scanner.nextDouble();
+                scanner.nextLine();
+                bank.findAccount(iban);
 
             } else if (option == 6) {
                 System.out.println("Saliendo de la APP...");
