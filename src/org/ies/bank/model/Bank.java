@@ -15,6 +15,32 @@ public class Bank {
         this.accounts = accounts;
     }
 
+    public void transfer(String ibanDestination, String ibanOrigin, double money) {
+        Account accountOrigin = findAccount(ibanOrigin);
+        Account accountDestination = findAccount(ibanDestination);
+        if (accountOrigin != null) {
+            System.out.println("Cuenta encontrada");
+            if (accountDestination != null) {
+                System.out.println("Cuenta encontrada");
+                if (money > accountOrigin.getBalance()) {
+                    System.out.println("No se puede realizar la transferencia");
+                } else {
+                    accountOrigin.deposit(-money);
+                    accountDestination.deposit(+money);
+                    System.out.println("La transferencia se puede realizar");
+                }
+            } else {
+                System.out.println("Cuenta de destino no encontrada");
+            }
+        } else {
+            System.out.println("Cuenta de origen no encontrada ");
+        }
+        System.out.println("Introduce el dinero a transferir");
+        money = scanner.nextDouble();
+        scanner.nextLine();
+
+    }
+
     public void showAccounts() {
         for (Account account : accounts) {
             account.showInfo();
