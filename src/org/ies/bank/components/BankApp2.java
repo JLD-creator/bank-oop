@@ -9,7 +9,7 @@ public class BankApp2 {
     public BankApp2(BankReader bankReader) {
         this.bankReader = bankReader;
     }
-    public void run(){
+    public BankApp2 run(){
         Bank bank = bankReader.read();
         Account account = bank.findAccount("ES0001");
         if (account != null){
@@ -25,5 +25,7 @@ public class BankApp2 {
         }
         account.showInfo();
         account2.showInfo();
+        bank.transfer("ES0001", "ES0002", 500);
+        return new BankApp2(bankReader);
     }
 }

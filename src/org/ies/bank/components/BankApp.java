@@ -62,6 +62,6 @@ public class BankApp {
             }
 
         } while (option != 6);
-        return null;
+        return new BankApp(scanner, bankReader);
     }
 }

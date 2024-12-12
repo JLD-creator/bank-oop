@@ -10,7 +10,7 @@ public class BankApp3 {
         this.bankReader = bankReader;
     }
 
-    public void run() {
+    public BankApp3 run() {
         Bank bank = bankReader.read();
         bank.showAccounts();
         Account account = bank.findAccount("ES0003");
@@ -29,5 +29,6 @@ public class BankApp3 {
         }
         Account account3 = bank.findAccount("ES0001");
         account3.showInfo();
+        return new BankApp3(bankReader);
     }
 }

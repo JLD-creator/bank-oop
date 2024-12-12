@@ -15,7 +15,7 @@ public class Bank {
         this.accounts = accounts;
     }
 
-    public void transfer(String ibanDestination, String ibanOrigin, double money) {
+    public void transfer(String ibanOrigin, String ibanDestination, double money) {
         Account accountOrigin = findAccount(ibanOrigin);
         Account accountDestination = findAccount(ibanDestination);
         if (accountOrigin != null) {
